@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'leaflet/dist/leaflet.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  background: #0F172A;
+  color: #F8FAFC;
+  font-family: 'Inter', sans-serif;
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+::selection { background: #0EA5E9; color: #0F172A; }
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: #131C2E; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 250px !important;
+  background: #131C2E !important;
+  border-radius: 6px;
+  z-index: 1 !important;
+}
+
+/* Control buttons */
+.leaflet-bar a,
+.leaflet-bar a:hover {
+  background: #1E293B !important;
+  color: #F8FAFC !important;
+  border-color: #334155 !important;
+}
+.leaflet-bar a:hover { background: #334155 !important; }
+.leaflet-bar { border: 1px solid #334155 !important; box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important; }
+
+/* Scale control */
+.leaflet-control-scale-line {
+  background: rgba(30,41,59,0.9) !important;
+  border-color: #334155 !important;
+  color: #94A3B8 !important;
+  font-size: 10px !important;
+}
+
+/* Attribution */
+.leaflet-control-attribution {
+  background: rgba(15,23,42,0.85) !important;
+  color: #64748B !important;
+  font-size: 9px !important;
+}
+.leaflet-control-attribution a { color: #0EA5E9 !important; }
+
+.data-num { font-family: 'JetBrains Mono', monospace; font-variant-numeric: tabular-nums; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise { animation: rise 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@layer components {
+  .input {
+    @apply w-full bg-panel2 border border-line rounded-md px-3 py-2 text-sm text-frost outline-none transition-colors;
+  }
+  .input:focus {
+    @apply border-ice/60 ring-1 ring-ice/20;
+  }
+  select.input { appearance: none; }
+}
